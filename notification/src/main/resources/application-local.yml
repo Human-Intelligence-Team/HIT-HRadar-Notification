@@ -18,5 +18,12 @@ spring:
         show_sql: false
         dialect: org.hibernate.dialect.MariaDBDialect
     open-in-view: false
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic:
+      notification: hr.notification
+    consumer:
+      group-id: notification-group
+
 server:
   port: 8083
