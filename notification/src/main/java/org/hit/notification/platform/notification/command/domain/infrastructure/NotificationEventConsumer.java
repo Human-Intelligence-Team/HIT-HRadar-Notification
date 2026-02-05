@@ -15,14 +15,13 @@ public class NotificationEventConsumer {
     private final NotificationCommandService commandService;
     private final SseEmitterManager emitterManager;
 
-    @KafkaListener(topics = "hr.notification", groupId = "notification-group")
+    @KafkaListener(topics = "${spring.kafka.topic.notification}", groupId = "${spring.kafka.consumer.group-id}")
     public void consume(HrNotificationEvent event) {
 
         Notification notification = commandService.createFromEvent(event);
 
         emitterManager.send(
                 notification.getUserId(),
-                notification
-        );
+                notification);
     }
 }

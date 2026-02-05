@@ -14,6 +14,10 @@ spring:
       connection-timeout: 30000
   kafka:
     bootstrap-servers: ${KAFKA_BROKERS}
+    topic:
+      notification: ${KAFKA_TOPIC_NOTIFICATION}
+    consumer:
+      group-id: ${KAFKA_GROUP_ID_NOTIFICATION}
 
 logging:
   level:
