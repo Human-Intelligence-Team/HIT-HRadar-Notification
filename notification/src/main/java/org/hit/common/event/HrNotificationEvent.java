@@ -6,6 +6,7 @@ public record HrNotificationEvent(
         Long userId,
         String title,
         String message,
-        String linkUrl
+        String linkUrl,
+        Long createdBy
 ) {}
 

@@ -45,6 +45,9 @@ public class Notification {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
 
+    @Column(name = "created_by", nullable = false)
+    private Long createdBy;
+
     /* ===== Factory ===== */
     public static Notification create(
             String eventId,
@@ -52,7 +55,8 @@ public class Notification {
             String type,
             String title,
             String message,
-            String linkUrl
+            String linkUrl,
+            Long createdBy
     ) {
         Notification n = new Notification();
         n.eventId = eventId;
@@ -63,6 +67,7 @@ public class Notification {
         n.linkUrl = linkUrl;
         n.read = false;
         n.createdAt = LocalDateTime.now();
+        n.createdBy = createdBy;
         return n;
     }
 

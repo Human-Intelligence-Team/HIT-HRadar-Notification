@@ -28,7 +28,8 @@ public class NotificationCommandService {
                 event.type(),
                 event.title(),
                 event.message(),
-                event.linkUrl()
+                event.linkUrl(),
+                event.createdBy()
         );
 
         repository.save(notification);
