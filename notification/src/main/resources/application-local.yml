@@ -24,6 +24,19 @@ spring:
       notification: hr.notification
     consumer:
       group-id: notification-group
+      auto-offset-reset: earliest
+      enable-auto-commit: true
+      auto-commit-interval: 1000
+      # Connection and session settings
+      session-timeout-ms: 30000
+      heartbeat-interval-ms: 10000
+      max-poll-interval-ms: 300000
+    # Connection retry settings
+    properties:
+      reconnect.backoff.ms: 1000
+      reconnect.backoff.max.ms: 10000
+      request.timeout.ms: 30000
+      retry.backoff.ms: 1000
 
 server:
   port: 8083
